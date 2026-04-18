@@ -1,0 +1,196 @@
+/*
+  全局样式说明：
+  1) 仅补充 Tailwind 之外的结构性样式（动画、特定组件）
+  2) 类名语义化，便于后续二次开发
+  3) 保持低耦合：避免覆盖 Tailwind 工具类默认行为
+*/
+
+:root {
+  --surface-glass: rgba(255, 252, 248, 0.9);
+  --warm-paper: #f6efe5;
+  --warm-paper-deep: #efe3d3;
+  --warm-brown: #8b6248;
+  --warm-brown-deep: #714f3b;
+  --warm-text: #523f32;
+  --warm-border: #dccab4;
+  --warm-shadow: rgba(95, 69, 55, 0.14);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+}
+
+/* 背景氛围球：增加空间层次感 */
+.bg-orb {
+  position: fixed;
+  z-index: -1;
+  border-radius: 9999px;
+  filter: blur(30px);
+  opacity: 0.35;
+  pointer-events: none;
+}
+
+.bg-orb-1 {
+  width: 24rem;
+  height: 24rem;
+  top: 6rem;
+  right: -6rem;
+  background: radial-gradient(circle at 30% 30%, #e8d7c5 0%, #f8f2ec 70%);
+}
+
+.bg-orb-2 {
+  width: 20rem;
+  height: 20rem;
+  bottom: 6rem;
+  left: -5rem;
+  background: radial-gradient(circle at 30% 30%, #eadbc9 0%, #f7f3ec 72%);
+}
+
+/* 联系方式芯片 */
+.contact-chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.75rem;
+  border: 1px solid var(--warm-border);
+  background: var(--surface-glass);
+  padding: 0.625rem 0.75rem;
+  font-size: 0.8125rem;
+  line-height: 1.25rem;
+  color: var(--warm-text);
+  transition: all 0.22s ease;
+}
+
+.contact-chip:hover {
+  border-color: #c5a98c;
+  color: var(--warm-brown-deep);
+  transform: translateY(-1px);
+}
+
+/* 时间轴 */
+.timeline-axis {
+  position: absolute;
+  left: 0.1rem;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(180deg, #d9c4ab 0%, #ebdece 100%);
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 1.2rem;
+}
+
+.timeline-dot {
+  position: absolute;
+  left: -0.33rem;
+  top: 1.1rem;
+  width: 0.75rem;
+  height: 0.75rem;
+  border-radius: 9999px;
+  background: var(--warm-brown);
+  box-shadow: 0 0 0 4px #f3e8dc;
+}
+
+.timeline-card {
+  border: 1px solid #e6d8c6;
+  border-radius: 1rem;
+  background: #fffdfa;
+  padding: 1rem 1.1rem;
+}
+
+.course-tag {
+  border-radius: 9999px;
+  border: 1px solid #ddccb8;
+  background: var(--warm-paper);
+  padding: 0.35rem 0.7rem;
+  font-size: 0.78rem;
+  color: var(--warm-text);
+}
+
+/* 项目卡片 */
+.project-card {
+  overflow: hidden;
+  border-radius: 1.3rem;
+  border: 1px solid #e3d3bf;
+  background: #fffdfa;
+  box-shadow: 0 18px 40px var(--warm-shadow);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 24px 48px rgba(95, 69, 55, 0.2);
+}
+
+.project-cover {
+  width: 100%;
+  height: 14rem;
+  object-fit: cover;
+}
+
+/* 技能标签 */
+.skill-tag {
+  border-radius: 9999px;
+  border: 1px solid #dcc8b0;
+  background: linear-gradient(135deg, #f7f0e6 0%, #f2e6d8 100%);
+  padding: 0.45rem 0.85rem;
+  font-size: 0.83rem;
+  color: var(--warm-text);
+}
+
+/* 简历展示框：维持合适阅读比例 */
+.resume-frame-wrap {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+}
+
+.resume-frame {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* 回到顶部按钮 */
+.back-top-btn {
+  border-radius: 0.75rem;
+  border: 1px solid rgba(240, 224, 205, 0.58);
+  background: rgba(240, 224, 205, 0.12);
+  padding: 0.5rem 0.9rem;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: #f8f2ec;
+  transition: all 0.22s ease;
+}
+
+.back-top-btn:hover {
+  background: rgba(240, 224, 205, 0.22);
+}
+
+/* 入场动画：在 JS 触发 .is-visible 后执行 */
+.section-fade {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.section-fade.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* 响应式优化 */
+@media (min-width: 768px) {
+  .project-cover {
+    height: 16rem;
+  }
+
+  .resume-frame-wrap {
+    aspect-ratio: 16 / 10;
+  }
+}

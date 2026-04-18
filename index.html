@@ -1,0 +1,333 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>麦子纯 | Portfolio</title>
+    <meta
+      name="description"
+      content="麦子纯个人主页：哲学（艺术哲学）与 AI 大数据交叉背景，项目、技能与简历展示。"
+    />
+
+    <!--
+      使用 Tailwind CDN 快速构建现代响应式布局。
+      如需工程化（Vite / Next / Nuxt）可迁移为本地构建版本。
+    -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      /*
+        Tailwind 主题扩展：
+        1) 定义莫兰迪风格主色（moss / slate / warm）
+        2) 定义更具人文气质的字体栈（优先中文无衬线）
+      */
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              moss: {
+                50: "#f8f2ec",
+                100: "#f0e4d8",
+                200: "#e4d0bd",
+                300: "#d3b598",
+                400: "#bf9677",
+                500: "#a87a5a",
+                600: "#8b6248",
+                700: "#714f3b",
+                800: "#5a3f30",
+                900: "#412d22"
+              },
+              slatewarm: {
+                50: "#f7f3ec",
+                100: "#efe7db",
+                200: "#e1d2bf",
+                300: "#ccb79e",
+                400: "#b59b7f",
+                500: "#9c8066",
+                600: "#826851",
+                700: "#695342",
+                800: "#523f32",
+                900: "#3f3027"
+              }
+            },
+            fontFamily: {
+              sans: ["Noto Sans SC", "PingFang SC", "Microsoft YaHei", "sans-serif"]
+            },
+            boxShadow: {
+              soft: "0 10px 30px rgba(95, 69, 55, 0.10)",
+              card: "0 18px 40px rgba(95, 69, 55, 0.14)"
+            }
+          }
+        }
+      };
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+
+  <body class="bg-slatewarm-50 text-slatewarm-800 antialiased">
+    <!-- 背景氛围层：营造轻盈、呼吸感空间，不影响内容可读性 -->
+    <div class="bg-orb bg-orb-1" aria-hidden="true"></div>
+    <div class="bg-orb bg-orb-2" aria-hidden="true"></div>
+
+    <!-- 顶部导航：简洁锚点，便于快速跳转 -->
+    <header class="sticky top-0 z-50 border-b border-slatewarm-200/70 bg-white/85 backdrop-blur">
+      <nav class="mx-auto flex max-w-6xl items-center justify-between px-6 py-4 lg:px-8">
+        <a href="#hero" class="text-sm font-bold tracking-[0.2em] text-moss-700">MZC PORTFOLIO</a>
+        <ul class="hidden items-center gap-6 text-sm text-slatewarm-700 md:flex">
+          <li><a href="#about" class="hover:text-moss-700">关于</a></li>
+          <li><a href="#projects" class="hover:text-moss-700">项目与技能</a></li>
+          <li><a href="#resume" class="hover:text-moss-700">简历直展</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <!-- Hero：姓名、头像、联系方式、一句话简介 -->
+      <section id="hero" class="section-fade mx-auto grid max-w-6xl gap-10 px-6 pb-16 pt-16 lg:grid-cols-12 lg:gap-14 lg:px-8 lg:pt-24">
+        <div class="lg:col-span-7">
+          <p class="mb-3 inline-flex items-center rounded-full border border-moss-200 bg-moss-50 px-3 py-1 text-xs font-semibold text-moss-700">
+            哲学(艺术哲学) × AI大数据
+          </p>
+          <h1 class="text-4xl font-extrabold leading-tight text-slatewarm-900 sm:text-5xl">
+            麦子纯
+          </h1>
+          <p class="mt-5 max-w-2xl text-base leading-8 text-slatewarm-700 sm:text-lg">
+            以艺术哲学的人文洞察为底色、以 AI 与数据方法为工具，我专注把“理解人”转化为“服务人”的产品与组织价值。
+          </p>
+
+          <!-- 联系方式：紧凑排版；请按真实信息替换占位内容 -->
+          <div class="mt-8 grid max-w-xl gap-3 sm:grid-cols-3">
+            <a href="tel:+8618063991044" class="contact-chip">电话：+86 180-6399-1044</a>
+            <a href="mailto:24300160083@m.fudan.edu.cn" class="contact-chip">邮箱：24300160083@m.fudan.edu.cn</a>
+            <div class="contact-chip">微信：sueimakowo</div>
+          </div>
+
+          <div class="mt-6 flex flex-wrap gap-2 text-xs text-slatewarm-700">
+            <span class="course-tag">20岁</span>
+            <span class="course-tag">汉族</span>
+            <span class="course-tag">现居上海</span>
+            <span class="course-tag">复旦大学本科在读</span>
+            <span class="course-tag">求职方向：人力资源</span>
+          </div>
+        </div>
+
+        <div class="lg:col-span-5">
+          <!-- 个人照片占位：后续替换 src 即可 -->
+          <figure class="mx-auto w-full max-w-sm overflow-hidden rounded-3xl border border-slatewarm-200 bg-white shadow-card">
+            <img
+              src="https://placehold.co/800x980/F5F7F8/5D7467?text=Profile+Photo"
+              alt="麦子纯个人照片占位"
+              class="h-full w-full object-cover"
+              loading="lazy"
+            />
+          </figure>
+        </div>
+      </section>
+
+      <!-- About & Education：时间轴方式展示跨学科背景 -->
+      <section id="about" class="section-fade border-y border-slatewarm-200/80 bg-white/80">
+        <div class="mx-auto max-w-6xl px-6 py-16 lg:px-8">
+          <div class="mb-10">
+            <h2 class="text-2xl font-bold text-slatewarm-900 sm:text-3xl">关于我 & 教育背景</h2>
+            <p class="mt-3 max-w-3xl text-sm leading-7 text-slatewarm-600 sm:text-base">
+              以复旦大学为学术主场，我将哲学（艺术哲学）中的价值思辨与 AI 大数据中的方法论结合，
+              持续探索“技术如何更好服务人”的跨学科路径。
+            </p>
+          </div>
+
+          <!-- 时间轴容器 -->
+          <div class="relative pl-6 sm:pl-10">
+            <div class="timeline-axis" aria-hidden="true"></div>
+
+            <article class="timeline-item">
+              <div class="timeline-dot" aria-hidden="true"></div>
+              <div class="timeline-card">
+                <p class="text-xs font-semibold tracking-wide text-moss-700">复旦大学</p>
+                <h3 class="mt-1 text-lg font-bold text-slatewarm-900">哲学学院 | 学士，哲学（艺术哲学方向）</h3>
+                <p class="mt-2 text-sm leading-7 text-slatewarm-600">
+                  2024.09 - 2028.06，在读。以哲学训练强化思辨深度、抽象能力与文本分析能力，
+                  支撑复杂问题下的判断与沟通。
+                </p>
+              </div>
+            </article>
+
+            <article class="timeline-item">
+              <div class="timeline-dot" aria-hidden="true"></div>
+              <div class="timeline-card">
+                <p class="text-xs font-semibold tracking-wide text-moss-700">学术表现 & 跨学科背景</p>
+                <h3 class="mt-1 text-lg font-bold text-slatewarm-900">哲学主修 + 大数据与人工智能学程</h3>
+                <p class="mt-2 text-sm leading-7 text-slatewarm-600">
+                  荣获 2024 年度港澳华侨奖学金三等奖，参加复旦大学龙腾卿云港澳台领导力训练营。
+                  具备理科高中背景，目前系统修读“大数据与人工智能”学程。
+                </p>
+              </div>
+            </article>
+
+            <article class="timeline-item">
+              <div class="timeline-dot" aria-hidden="true"></div>
+              <div class="timeline-card">
+                <p class="text-xs font-semibold tracking-wide text-moss-700">核心课程</p>
+                <h3 class="mt-1 text-lg font-bold text-slatewarm-900">跨学科课程矩阵</h3>
+                <div class="mt-3 flex flex-wrap gap-2">
+                  <span class="course-tag">高数 A（上）</span>
+                  <span class="course-tag">高数 A（下）</span>
+                  <span class="course-tag">线性代数</span>
+                  <span class="course-tag">程序设计及社会计算引论</span>
+                  <span class="course-tag">人工智能及数据库引论</span>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Projects & Skills：项目卡片 + 技能可视化 -->
+      <section id="projects" class="section-fade mx-auto max-w-6xl px-6 py-16 lg:px-8">
+        <div class="mb-10">
+          <h2 class="text-2xl font-bold text-slatewarm-900 sm:text-3xl">核心项目与技能</h2>
+          <p class="mt-3 max-w-3xl text-sm leading-7 text-slatewarm-600 sm:text-base">
+            关注“问题定义—原型落地—用户反馈”闭环，用跨学科视角实现兼具功能与温度的产品设计。
+          </p>
+        </div>
+
+        <div class="grid gap-8 lg:grid-cols-2">
+          <article class="project-card">
+            <!-- 项目截图占位 -->
+            <img
+              src="https://placehold.co/1200x760/EAEFED/4A5B52?text=%E8%80%81%E5%B9%B4%E6%95%B0%E5%AD%97%E9%99%AA%E4%BC%B4%E7%B3%BB%E7%BB%9F"
+              alt="老年数字陪伴系统项目截图占位"
+              class="project-cover"
+              loading="lazy"
+            />
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-slatewarm-900">基于代理式 AI 的老年数字陪伴系统《囡囡听侬讲》</h3>
+              <p class="mt-2 text-sm text-moss-700">角色：研发主力（2026.02 - 今）</p>
+              <p class="mt-3 text-sm leading-7 text-slatewarm-600">
+                以高龄用户数字鸿沟与基层治理需求为切入点，主导产品逻辑、技术链路和交互体验，
+                形成“AI + 社工”协同方案，推动心理慰藉与风险预警双向闭环。
+              </p>
+              <ul class="mt-4 space-y-2 text-sm text-slatewarm-700">
+                <li>• 独立主导项目申请书撰写，系统查阅并引用 25 篇中外文文献，定义“AI + 社工”产品逻辑</li>
+                <li>• 主导引入开源 RAG 私有架构（SimplyRetrieve）构建知识库，并完成小程序端适老化前端改造</li>
+                <li>• 将“怀旧疗法”融入 Prompt 设计，赋予智能体“共情与主动引导”能力并上线隐性心理风险预警</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <!-- 项目截图占位 -->
+            <img
+              src="https://placehold.co/1200x760/F1F2F4/52606E?text=%E5%A4%8D%E6%97%A6%E9%9D%92%E5%B9%B4%E7%89%B9%E5%B1%95"
+              alt="复旦青年特展项目截图占位"
+              class="project-cover"
+              loading="lazy"
+            />
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-slatewarm-900">《我们青年》复旦青年校庆特展</h3>
+              <p class="mt-2 text-sm text-moss-700">角色：策展核心成员（组织文化建设，2025.02 - 2025.05）</p>
+              <p class="mt-3 text-sm leading-7 text-slatewarm-600">
+                围绕校史档案重构“青年叙事”，打通史料挖掘、叙事编排与视觉传播流程，
+                将跨时空组织记忆转化为面向公众的展览语言。
+              </p>
+              <ul class="mt-4 space-y-2 text-sm text-slatewarm-700">
+                <li>• 系统梳理跨越数十年的《复旦青年》旧报纸，从海量非结构化信息中提炼关键节点</li>
+                <li>• 重构校园政策、生活空间与周边变迁的发展脉络，形成可展陈叙事主线</li>
+                <li>• 推动纸质档案向高感染力视觉展览语言转译，完成“组织记忆”的修复与传播</li>
+              </ul>
+            </div>
+          </article>
+        </div>
+
+        <div class="mt-10 rounded-3xl border border-slatewarm-200 bg-white p-6 shadow-soft sm:p-8">
+          <h3 class="text-lg font-bold text-slatewarm-900">技能标签</h3>
+          <div class="mt-5 flex flex-wrap gap-3">
+            <span class="skill-tag">OpenClaw Agent 部署</span>
+            <span class="skill-tag">工作流自动化规划</span>
+            <span class="skill-tag">高阶 Prompt 工程</span>
+            <span class="skill-tag">AIGC 结构化提取</span>
+            <span class="skill-tag">PyTorch 基础</span>
+            <span class="skill-tag">前端交互落地</span>
+            <span class="skill-tag">SAI2</span>
+            <span class="skill-tag">Photoshop</span>
+            <span class="skill-tag">Canva</span>
+            <span class="skill-tag">MBTI / 心理洞察</span>
+            <span class="skill-tag">Beebe 模型</span>
+            <span class="skill-tag">跨学科沟通与资源整合</span>
+          </div>
+        </div>
+
+        <div class="mt-8 rounded-3xl border border-slatewarm-200 bg-white p-6 shadow-soft sm:p-8">
+          <h3 class="text-lg font-bold text-slatewarm-900">学生组织与领导力</h3>
+          <div class="mt-4 space-y-4 text-sm leading-7 text-slatewarm-700">
+            <p>
+              <span class="font-semibold text-slatewarm-900">零零舍社（粤文化社团）｜教学文化组副组长（2025.09 - 今）</span><br />
+              负责粤语课堂课程设计与培训组织，担任粤语歌唱大赛核心 PM；主导 2026 粤港澳社会实践，独立设计文创《印记·镜海》。 
+            </p>
+            <p>
+              <span class="font-semibold text-slatewarm-900">复旦青年（校级媒体）｜学术部记者（2025.02 - 今）</span><br />
+              主笔深度稿《复旦地图的 n 次刷新》，多线访谈并梳理复杂信息，稿件获评校级 A 类、阅读量突破 4000+。
+            </p>
+            <p>
+              <span class="font-semibold text-slatewarm-900">认性社（性教育社团）｜核心组成员（2024.09 - 今）</span><br />
+              参与新生宣讲与核心课程建设，将社会学观察融入“给孩子们的性教育”等内容设计。
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Resume：PDF 内嵌直展 + 下载按钮 -->
+      <section id="resume" class="section-fade border-y border-slatewarm-200 bg-gradient-to-b from-white to-slatewarm-100/60">
+        <div class="mx-auto max-w-6xl px-6 py-16 lg:px-8">
+          <div class="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+            <div>
+              <h2 class="text-2xl font-bold text-slatewarm-900 sm:text-3xl">简历文件直展</h2>
+              <p class="mt-3 text-sm leading-7 text-slatewarm-600 sm:text-base">
+                下方区域使用内嵌 PDF 展示，便于快速阅读。若浏览器不支持预览，请点击下载按钮。
+              </p>
+            </div>
+            <!-- 下载按钮：直接指向同目录 PDF -->
+            <a
+              href="./麦子纯_简历.pdf"
+              download
+              class="inline-flex items-center justify-center rounded-xl bg-moss-700 px-5 py-3 text-sm font-semibold text-white transition hover:bg-moss-800 focus:outline-none focus:ring-2 focus:ring-moss-500"
+            >
+              下载 PDF 简历
+            </a>
+          </div>
+
+          <!--
+            iframe 容器采用固定宽高比策略：
+            - 移动端：更高比例，提升可读性
+            - 桌面端：横向宽阔，保留足够阅读区域
+          -->
+          <div class="resume-frame-wrap mt-8 overflow-hidden rounded-2xl border border-slatewarm-200 bg-white shadow-card">
+            <iframe
+              src="./麦子纯_简历.pdf#toolbar=1&navpanes=0"
+              title="麦子纯 PDF 简历预览"
+              class="resume-frame"
+            >
+            </iframe>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- 页脚：版权 + 回到顶部 -->
+    <footer class="relative bg-slatewarm-900 py-8 text-slatewarm-100">
+      <div class="mx-auto flex max-w-6xl items-center justify-between px-6 lg:px-8">
+        <p class="text-sm">Copyright 2026 · 麦子纯</p>
+        <button id="backToTop" type="button" class="back-top-btn" aria-label="回到顶部">
+          回到顶部
+        </button>
+      </div>
+    </footer>
+
+    <script src="./main.js"></script>
+  </body>
+</html>
